@@ -1,5 +1,7 @@
 # Issues with Xray Panels from the perspective of Core
 
+*2024-07-28*
+
 I've been observing the Xray bugtracker for a while now, and I see some
 recurring issues with users of popular Xray panels that are directly caused by
 some software design choices in those panels.
@@ -107,9 +109,6 @@ JSON configs, meaning that JSON outbounds get directly distributed to clients.
 I think over time this will become a massive compatibility hazard, and make it
 even harder for Xray's configuration format to change in a way that does not
 break users.
-
-In fact, it is already a compatibility hazard today, as at least two panels
-perform UA sniffing to figure out which kind of subsription content to produce.
 
 I recommend that panels always keep a way to only produce regular sharelinks,
 as I expect that this system will eventually blow up in everybody's faces.
