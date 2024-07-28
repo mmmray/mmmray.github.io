@@ -1,4 +1,4 @@
-# Issues with Xray Panels from the perspective of Core
+# Issues with Xray Panels
 
 *2024-07-28*
 
