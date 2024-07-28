@@ -110,5 +110,13 @@ I think over time this will become a massive compatibility hazard, and make it
 even harder for Xray's configuration format to change in a way that does not
 break users.
 
+Even if you assume that Xray's config format is stable and never changes, what
+is not specified is how clients are supposed to merge the custom config with
+their own functionality. For example, one client may replace the `"inbounds"`
+key entirely and replace it with their TUN, another client may insert their TUN
+inbound at position `0` instead. Some clients today respect the DNS settings in
+the custom JSON config, others do not. Some other clients may extract
+`"outbounds"` from the JSON and ignore the rest.
+
 I recommend that panels always keep a way to only produce regular sharelinks,
 as I expect that this system will eventually blow up in everybody's faces.
