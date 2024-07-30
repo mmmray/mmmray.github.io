@@ -1,6 +1,6 @@
 # Issues with Xray Panels
 
-*2024-07-28*
+*2024-07-30*
 
 I've been observing the Xray bugtracker for a while now, and I see some
 recurring issues with users of popular Xray panels that are directly caused by
