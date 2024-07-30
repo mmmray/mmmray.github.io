@@ -118,5 +118,9 @@ inbound at position `0` instead. Some clients today respect the DNS settings in
 the custom JSON config, others do not. Some other clients may extract
 `"outbounds"` from the JSON and ignore the rest.
 
-I recommend that panels always keep a way to only produce regular sharelinks,
-as I expect that this system will eventually blow up in everybody's faces.
+The wide sharing of JSON configs instead of sharelinks is unstoppable at this
+point. Particularly for server owners who have tech-illiterate users, there are
+some things like mux and routing that are best configured serverside instead of
+configured per-client. All I can recommend at this point is that that panels
+always keep a way to only produce regular sharelinks, as I expect that this
+system will eventually blow up in everybody's faces.
