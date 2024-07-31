@@ -1,6 +1,8 @@
 # Introduction to v2ray transports
 
-*2024-07-20*
+*2024-08-01*
+
+Translations: [Russian](https://marzban.dev/blog/about_transport/)
 
 ## Background
 
