@@ -286,8 +286,8 @@ can hit `Enter` to view the HTTP request, then hit `Tab` to switch to the
 `WebSocket Messages` tab. Hit `q` to get back to the list of requests, and `q`,
 then `y` to exit the inspector.
 
-Next let's to SplitHTTP, just because this one is HTTP-based and a good target
-for mitmproxy.
+Next let's look at SplitHTTP, just because this one is HTTP-based and a good
+target for mitmproxy.
 
 ## SplitHTTP
 
