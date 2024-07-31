@@ -15,8 +15,8 @@ in additional layers.
 * The other one may be some kind of mux, depending on which fork of v2ray you use.
 
 * TLS is not a "real" layer. The settings are passed into transport code, and
-  the transport can do whatever it wants with it. However, most transports
-  treat `tlsSettings` in a very similar way, and in fact call the same helper
+  the transport can do whatever it wants with it. However, all transports treat
+  `tlsSettings` in almost the same way, and in fact call the same helper
   functions.
 
 Anyway, back to transports.
