@@ -281,10 +281,10 @@ separate terminals:
 Instead of websocat talking to websocat directly, it talks to mitmproxy, and
 mitmproxy logs and forwards all traffic.
 
-As before, you can enter messages on both ends. In the `mitmproxy` window,
-you can hit `Enter` to view the HTTP request, then hit `Tab` to switch to the
-`WebSocket Messages` tab. Hit `q` to get back to the list of requests, and `q`
-+ `y` again to exit the inspector.
+As before, you can enter messages on both ends. In the `mitmproxy` window, you
+can hit `Enter` to view the HTTP request, then hit `Tab` to switch to the
+`WebSocket Messages` tab. Hit `q` to get back to the list of requests, and `q`,
+then `y` to exit the inspector.
 
 Next let's to SplitHTTP, just because this one is HTTP-based and a good target
 for mitmproxy.
