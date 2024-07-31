@@ -257,10 +257,146 @@ It works the same way as WebSocket 0-RTT. Now both annoyances of WebSocket are
 eliminated: The handshake overhead (mostly), and the message overhead
 (entirely)
 
-## GRPC
+## Intermission: Changing learning methods
 
-TODO
+Until this point, tools like `nc` and `websocat` were sufficient to build some
+understanding about how those transports work. That was easy enough to do
+because WebSocket and TCP are very standardized and not some strange invention
+by anti-censorship researchers.
+
+For the next few transports, it is more difficult to emulate them with standard
+tools, and we need some inspection tools to keep learning.
+
+Install [mitmproxy](https://docs.mitmproxy.org/stable/overview-installation/)
+for the next steps. I am using `Mitmproxy: 10.0.0`, but for as long as you are
+not on Debian stable, I think any version will do fine.
+
+After this, let's try looking at some websocket requests. Run these commands in
+separate terminals:
+
+1. `websocat -s 3002`
+2. `mitmproxy --mode reverse:http://localhost:3002 -p 3001`
+3. `websocat ws://localhost:3001`
+
+Instead of websocat talking to websocat directly, it talks to mitmproxy, and
+mitmproxy logs and forwards all traffic.
+
+As before, you can enter messages on both ends. In the `mitmproxy` window,
+you can hit `Enter` to view the HTTP request, then hit `Tab` to switch to the
+`WebSocket Messages` tab. Hit `q` to get back to the list of requests, and `q`
++ `y` again to exit the inspector.
+
+Next let's to SplitHTTP, just because this one is HTTP-based and a good target
+for mitmproxy.
 
 ## SplitHTTP
+
+I've done my best at a high-level explanation in [the official Xray
+docs](https://xtls.github.io/en/config/transports/splithttp.html), so I'm not
+even going to try to explain how this protocol works, just tell you how to
+intercept its traffic and see what it does.
+
+There is no such thing as `websocat` for SplitHTTP, but actually you can build
+a tool like this with xray. In other words, you can use Xray transports without
+VLESS or Vmess. Just raw data.
+
+Save as `client.json`:
+
+```json
+{
+  "log": {
+    "access": "/dev/stdout",
+    "error": "/dev/stdout",
+    "loglevel": "debug"
+  },
+  "inbounds": [
+    {
+      "tag": "dkd",
+      "listen": "127.0.0.1",
+      "port": 5999,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1",
+        "port": 6000,
+        "network": "tcp"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "streamSettings": {
+        "network": "splithttp"
+      }
+    }
+  ]
+}
+```
+
+Save as `server.json`:
+
+```json
+{
+  "log": {
+    "access": "/dev/stdout",
+    "error": "/dev/stdout",
+    "loglevel": "debug"
+  },
+  "inbounds": [
+    {
+      "tag": "dkd",
+      "listen": "127.0.0.1",
+      "port": 6001,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1",
+        "port": 6002,
+        "network": "tcp"
+      },
+      "streamSettings": {
+        "network": "splithttp"
+      }
+    }
+  ],
+  "outbounds": [
+    {"protocol": "freedom"}
+  ]
+}
+```
+
+Launch, all in separate terminals again:
+
+1. `xray -c client.json`
+2. `xray -c server.json`
+3. `mitmproxy --mode reverse:http://localhost:6001 -p 6000 --set stream_large_bodies=0m`
+4. `nc -l 6002`
+5. `nc localhost 5999`
+
+The traffic flow client-to-server is now this:
+
+```
+(nc localhost 5999) -> port 5999 (xray client) -> port 6000 (mitmproxy)
+-> port 6001 (xray server) -> nc -l 6002)
+```
+
+In this setup, xray (client) acts as a port forwarder, but when forwarding the
+traffic, it is encoded as splithttp. Then in mitmproxy you can check out how
+SplitHTTP works. In xray (server) SplitHTTP is decoded again and the unwrapped
+contents is forwarded to `nc -l 6002`.
+
+Enter `hello` into `nc localhost 5999`, hit `Enter` key, and see what happens
+in mitmproxy. Xray (client) should send a GET and a POST request. Navigate to
+the POST request with your arrow keys, and you should see `Content-Length: 6`.
+This is `hello` plus a newline.
+
+Notice that the `GET` request has not finished yet (there is no response time
+in the rightmost column). Anything you type into `nc -l 6002` will be streamed
+through this never-ending HTTP response. If you kill the `nc` commands, the
+`GET` request finishes.
+
+Unfortunately due to the `stream_large_bodies` option, all request and response
+bodies seem to be missing in mitmproxy, at least on my machine.
+
+## GRPC
 
 TODO
