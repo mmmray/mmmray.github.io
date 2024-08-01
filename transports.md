@@ -29,8 +29,10 @@ to be TCP, or even based on TCP. It just has to be something that transmits
 bytes in-order from client to server without losing them, and the other way
 around.
 
-After this pipe is provided, Vmess, VLESS or Trojan can be run over that
-transport. Or something else entirely.
+After this pipe is provided, any bytes can be sent through it. V2ray would send
+VMESS, Vless or Trojan over it, but for the sake of simplicity we're going to
+ignore those protocols entirely and just send some lines of text back and
+forth.
 
 ## Prerequisites
 
