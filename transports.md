@@ -32,6 +32,12 @@ around.
 After this pipe is provided, Vmess, VLESS or Trojan can be run over that
 transport. Or something else entirely.
 
+## Prerequisites
+
+You need a Linux terminal. All of what I write here has been done on Ubuntu 24,
+but it shouldn't matter. You can use WSL or VirtualBox if you are on Windows,
+or run these tests over SSH on some VPS.
+
 ## Our first transport
 
 We're going to use some Linux commands to showcase what transports can do.
@@ -48,6 +54,8 @@ and in another terminal:
 ```
 nc localhost 6003  # client
 ```
+
+If you don't have `nc`, on Ubuntu you can install it with `sudo apt install netcat`.
 
 Write some lines in one terminal and watch them appear on the other. It works in both directions.
 
@@ -78,9 +86,9 @@ The reason we put up with both of these things is because certain CDN can
 forward WebSockets as-is.
 
 If `nc` is basically a TCP transport, then tools like
-[websocat](https://github.com/vi/websocat/) or
-[wscat](https://github.com/websockets/wscat) are basically a WebSocket
-transport.
+[websocat](https://github.com/vi/websocat/) are basically a WebSocket
+transport. Install `websocat` for the next steps by following the instructions
+on its README.
 
 In fact, those tools are very useful to test whether websocket is listening
 correctly on a particular path:
@@ -301,6 +309,10 @@ intercept its traffic and see what it does.
 There is no such thing as `websocat` for SplitHTTP, but actually you can build
 a tool like this with xray. In other words, you can use Xray transports without
 VLESS or Vmess. Just raw data.
+
+For the next steps you need to download xray. The core, without any GUI. Go to
+[Xray Releases](https://github.com/XTLS/Xray-core/releases), and most likely
+you need `Xray-linux-64.zip` or `Xray-linux-arm64-v8a.zip`.
 
 Save as `client.json`:
 
