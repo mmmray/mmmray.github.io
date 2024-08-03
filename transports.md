@@ -79,10 +79,10 @@ socket. The main difference is that:
    path-based routing, are pretty useful, but the additional back-and-forth at
    the beginning adds additional latency.
 
-2. WebSocket does not transmit bytes, but "messages". For our purposes it means
-   that instead of `Write("hello world")` sending `hello world` (like on TCP),
-   it actually means that `<frame header>hello world` is being sent. For the
-   purpose of building transports, this design is useless overhead.
+2. WebSocket does not transmit bytes, but "messages". In TCP, `Write("hello world")`
+   means that `hello world` is sent. But in WebSocket, actually `<frame
+   header>hello world` is sent. For the purpose of building transports, this
+   design is useless overhead.
 
 The reason we put up with both of these things is because certain CDN can
 forward WebSockets as-is.
