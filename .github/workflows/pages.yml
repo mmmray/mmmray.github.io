@@ -29,9 +29,9 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v1
       - run: |
-          mkdir bin
-          curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.40/mdbook-v0.4.40-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=bin
-          bin/mdbook build
+          curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
+          cargo binstall --no-confirm mdbook-mermaid mdbook
+          mdbook build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
