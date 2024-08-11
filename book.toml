@@ -1,0 +1,6 @@
+[book]
+authors = ["mmmray"]
+language = "en"
+multilingual = false
+src = "."
+title = "mmmray documents"
