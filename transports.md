@@ -2,7 +2,7 @@
 
 *2024-08-01*
 
-Translations: [Russian](https://marzban.dev/blog/about_transport/)
+Translations: [Russian](https://marzban.dev/blog/about_transport/), [Farsi](./transports.fa.md)
 
 ## Background
 
