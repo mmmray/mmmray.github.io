@@ -12,7 +12,7 @@ multiple layers. In this order, from outer to inner layer:
 * Mux, optional
 * "The protocol", e.g. VLESS or Vmess
 
-Each of these layers "is 0-RTT"... or doesn't. What that really means is: Does
+Each of these layers "is 0-RTT"... or isn't. What that really means is: Does
 the given layer add a roundtrip when creating a full connection (and therefore
 increase latency), or does it not?
 
