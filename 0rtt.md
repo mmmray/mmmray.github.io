@@ -1,5 +1,7 @@
 # 0-RTT
 
+*2024-08-14*
+
 There seems to be some misconceptions around what 0-RTT means. Any given v2ray
 config does not just "have" 0-RTT or not have it.
 
