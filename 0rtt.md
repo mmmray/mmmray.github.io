@@ -2,8 +2,7 @@
 
 *2024-08-14*
 
-There seems to be some misconceptions around what 0-RTT means. Any given v2ray
-config does not just "have" 0-RTT or not have it.
+Any given v2ray config does not just "have" 0-RTT or not have it.
 
 It's a property of a specific protocol layer, and your config is made of
 multiple layers. In this order, from outer to inner layer:
