@@ -1,6 +1,9 @@
-# 0-RTT
-
-*2024-08-14*
+---
+title: 0-RTT
+date: 2024-08-14
+aliases:
+- /0rtt.html
+---
 
 Any given v2ray config does not just "have" 0-RTT or not have it.
 

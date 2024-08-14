@@ -1,0 +1,60 @@
+# Hugo configuration file
+title: mmmray documents
+baseURL: https://mmmray.github.io/wall-documents/
+
+# import hextra as module
+module:
+  imports:
+  - path: github.com/imfing/hextra
+
+outputs:
+  home:
+  - html
+  - rss
+  section:
+  - html
+  - rss
+  taxonomy:
+  - html
+  term:
+  - html
+
+markup:
+  # allow raw html
+  goldmark:
+    renderer:
+      unsafe: true
+
+  # enable hextra syntax highlight
+  highlight:
+    noClasses: false
+
+menu:
+  main:
+    - name: Blog
+      pageRef: /blog
+      weight: 1
+      params:
+        type: blog
+    - name: GitHub
+      weight: 3
+      url: "https://github.com/mmmray"
+      params:
+        icon: github
+
+params:
+  navbar:
+    displayTitle: true
+    displayLogo: false
+
+  footer:
+    enable: true
+    displayCopyright: true
+    displayPoweredBy: true
+    width: normal
+
+  displayUpdatedDate: true
+
+  editURL:
+    enable: true
+    base: "https://github.com/mmmray/wall-documents/edit/main/content"
