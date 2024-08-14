@@ -1,7 +1,11 @@
-# 0-RTT
+---
+title: 0-RTT
+date: 2024-08-14
+aliases:
+- /0rtt.html
+---
 
-There seems to be some misconceptions around what 0-RTT means. Any given v2ray
-config does not just "have" 0-RTT or not have it.
+Any given v2ray config does not just "have" 0-RTT or not have it.
 
 It's a property of a specific protocol layer, and your config is made of
 multiple layers. In this order, from outer to inner layer:
@@ -12,7 +16,7 @@ multiple layers. In this order, from outer to inner layer:
 * Mux, optional
 * "The protocol", e.g. VLESS or Vmess
 
-Each of these layers "is 0-RTT"... or doesn't. What that really means is: Does
+Each of these layers "is 0-RTT"... or isn't. What that really means is: Does
 the given layer add a roundtrip when creating a full connection (and therefore
 increase latency), or does it not?
 
@@ -32,7 +36,7 @@ Imagine your latency to send some data to the server is 100ms. This is what
 happens when a new connection is established (let's just ignore TCP for this
 article):
 
-1. Then, client sends ClientHello, and waits for the server to respond with
+1. Client sends ClientHello, and waits for the server to respond with
    ServerHello. **200ms added**, because you're waiting for the data to
    transmit in both directions.
 2. Then, client starts sending a HTTP request for WebSocket, and waits for the
@@ -40,8 +44,8 @@ article):
 3. Finally, the client can start forwarding the actual traffic.
 
 This double-roundtrip is why URLTest may be slow (200ms + 200ms + ...), because
-it establishes a new connection, but later, the ping in speedtest is a bit
-nicer (100ms)
+it establishes a new connection, but once the connection is established, the
+ping in speedtest is a bit nicer.
 
 In this example, it can be said that VLESS does not add latency, so VLESS "is
 0-RTT". The same holds true for Trojan.

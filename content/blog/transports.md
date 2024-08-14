@@ -1,8 +1,11 @@
-# Transports
+---
+title: Transports
+date: 2024-08-01
+aliases:
+- /transports.html
+---
 
-*2024-08-01*
-
-Translations: [Russian](https://marzban.dev/blog/about_transport/), [Farsi](./transports.fa.md)
+Translations: [Russian](https://marzban.dev/blog/about_transport/), [Farsi](../../fa/blog/transports/)
 
 ## Background
 
