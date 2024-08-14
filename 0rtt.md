@@ -40,8 +40,8 @@ article):
 3. Finally, the client can start forwarding the actual traffic.
 
 This double-roundtrip is why URLTest may be slow (200ms + 200ms + ...), because
-it establishes a new connection, but later, the ping in speedtest is a bit
-nicer (100ms)
+it establishes a new connection, but once the connection is established, the
+ping in speedtest is a bit nicer.
 
 In this example, it can be said that VLESS does not add latency, so VLESS "is
 0-RTT". The same holds true for Trojan.
