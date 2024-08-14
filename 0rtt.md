@@ -32,7 +32,7 @@ Imagine your latency to send some data to the server is 100ms. This is what
 happens when a new connection is established (let's just ignore TCP for this
 article):
 
-1. Then, client sends ClientHello, and waits for the server to respond with
+1. Client sends ClientHello, and waits for the server to respond with
    ServerHello. **200ms added**, because you're waiting for the data to
    transmit in both directions.
 2. Then, client starts sending a HTTP request for WebSocket, and waits for the
