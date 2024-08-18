@@ -39,6 +39,9 @@ forth.
 
 ## Prerequisites
 
+**You will understand this article better if you follow and execute its
+examples, and play around with them yourself.**
+
 You need a Linux terminal. All of what I write here has been done on Ubuntu 24,
 but it shouldn't matter. You can use WSL or VirtualBox if you are on Windows,
 or run these tests over SSH on some VPS.
