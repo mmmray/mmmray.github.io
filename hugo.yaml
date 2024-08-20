@@ -57,4 +57,4 @@ params:
 
   editURL:
     enable: true
-    base: "https://github.com/mmmray/wall-documents/edit/main/content"
+    base: "https://github.com/mmmray/mmmray.github.io/edit/main/content"
