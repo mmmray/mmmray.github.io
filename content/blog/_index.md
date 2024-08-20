@@ -1,6 +1,8 @@
 ---
 title: Blog
 toc: true
+aliases:
+- /wall-documents/blog
 ---
 
 <div style="text-align: center; margin-top: 1em;">

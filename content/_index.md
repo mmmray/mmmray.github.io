@@ -1,5 +1,7 @@
 ---
 title: mmmray documents
+aliases:
+- /wall-documents
 ---
 
 Random articles I ([mmmray](https://github.com/mmmray)) wrote.
