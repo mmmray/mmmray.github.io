@@ -3,6 +3,8 @@ title: 0-RTT
 date: 2024-08-14
 aliases:
 - /0rtt.html
+- /wall-documents/0rtt.html
+- /wall-documents/blog/0rtt
 ---
 
 Any given v2ray config does not just "have" 0-RTT or not have it.

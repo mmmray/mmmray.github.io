@@ -3,6 +3,8 @@ title: Issues with Xray Panels
 date: 2024-07-30
 aliases:
 - /panels.html
+- /wall-documents/panels.html
+- /wall-documents/blog/panels
 ---
 
 I've been observing the Xray bugtracker for a while now, and I see some

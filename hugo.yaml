@@ -1,6 +1,6 @@
 # Hugo configuration file
 title: mmmray documents
-baseURL: https://mmmray.github.io/wall-documents/
+baseURL: https://mmmray.github.io/
 
 # import hextra as module
 module:

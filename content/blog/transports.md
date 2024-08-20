@@ -3,6 +3,8 @@ title: Transports
 date: 2024-08-01
 aliases:
 - /transports.html
+- /wall-documents/transports.html
+- /wall-documents/blog/transports
 ---
 
 Translations: [Russian](https://marzban.dev/blog/about_transport/)
