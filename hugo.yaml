@@ -19,6 +19,17 @@ outputs:
   term:
   - html
 
+defaultContentLanguage: en
+languages:
+  en:
+    languageName: English
+    weight: 1
+  fa:
+    languageName: فارسی
+    languageCode: fa
+    languageDirection: rtl
+    weight: 2
+
 markup:
   # allow raw html
   goldmark:
@@ -34,6 +45,11 @@ menu:
     - name: Blog
       pageRef: /blog
       weight: 1
+      params:
+        type: blog
+    - name: Farsi Blog
+      pageRef: /fa/blog
+      weight: 2
       params:
         type: blog
     - name: GitHub

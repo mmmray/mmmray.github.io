@@ -1,0 +1,5 @@
+/* https://github.com/rust-lang/mdBook/issues/2316#issuecomment-1967370177 */
+#content > main:nth-child(1) > * {
+    text-align: start;
+    unicode-bidi: plaintext;
+}

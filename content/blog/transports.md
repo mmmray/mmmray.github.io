@@ -7,7 +7,7 @@ aliases:
 - /wall-documents/blog/transports
 ---
 
-Translations: [Russian](https://marzban.dev/blog/about_transport/)
+Translations: [Russian](https://marzban.dev/blog/about_transport/), [Farsi](../../fa/blog/transports/)
 
 ## Background
 
